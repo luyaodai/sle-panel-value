@@ -1,0 +1,11 @@
+# Data: never commit
+data/
+*.dta
+*.ssp
+*.zip
+*.sas7bdat
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
