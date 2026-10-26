@@ -1,7 +1,7 @@
 # Phase 1 · Scope
 
 ## Decision question
-For a US commercial health plan, what sensitivity, specificity, and price would a multiplexed autoantibody panel, used after a positive ANA result to triage rheumatology referral need, in 18-64 year old patients in primary care with symptoms suggestive of SLE without a prior SLE diagnosis, to be cost-effective and affordable over 3 years at $100,000/QALY compared with the current pathway?
+For a US commercial health plan, what sensitivity, specificity, and price would a multiplexed autoantibody panel, used after a positive ANA result to triage rheumatology referral need, in 18-64 year old patients in primary care with symptoms suggestive of SLE without a prior SLE diagnosis, to be cost-effective （lifetime horizon) and affordable over 3 years at $100,000/QALY compared with the current pathway?
 
 ## PICO
 | | |
