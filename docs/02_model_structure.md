@@ -54,7 +54,7 @@ Current pathway: everyone → full workup (anti-dsDNA, anti-Sm, ENA, C3/C4, CBC,
 ```
 SLE, no major organ damage → Lupus nephritis → End-stage renal disease (ESRD)
                 │                          │             	   │
-                └────────────────────────Death─────────────────────┘
+                └─────────────────────── Death ────────────────────┘
 
 ```
 
