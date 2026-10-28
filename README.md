@@ -1,6 +1,6 @@
 # SLE Multiplex Autoantibody Panel: Early Value Assessment
 
-**Status: Phase 1 complete (scope).** Model build in progress; see [Roadmap](#roadmap).
+**Status: Phases 1–2 complete (scope, model structure).** Model build in progress; see [Roadmap](#roadmap).
 
 Mock client question: a diagnostics company asks what accuracy and price its multiplex autoantibody panel for systemic lupus erythematosus (SLE) would need for US payers to see value. The panel is hypothetical. This project uses public data and published literature only.
 
@@ -35,13 +35,18 @@ For a US commercial health plan, what sensitivity, specificity, and price would 
 - M05 masked in all years; RA fallback would use M06 only.
 - Raw MEPS files are not committed (`data/` is in `.gitignore`).
 
+## Model structure
+- **Decision tree** (diagnosis phase): panel triage vs. current pathway, with a safety net for patients whose symptoms persist after a negative result.
+- **Markov model** (lifetime, 1-year cycles): SLE without major organ damage → lupus nephritis → end-stage renal disease → death. Diagnostic delay raises the yearly risk of lupus nephritis.
+- Details: [docs/02_model_structure.md](docs/02_model_structure.md)
+
 ## Roadmap
 
 | Phase | What | Outputs | Status |
 |---|---|---|---|
 | 1. Scope | Decision question, PICO, analysis settings | This README | ✅ Complete |
-| 2. Model structure | Decision tree for the triage pathway (panel vs. current pathway); Markov model for outcomes after early vs. late diagnosis | Model diagram, health states | Next |
-| 3. Parameters & literature | Targeted literature review (pre-test probability, test accuracy, diagnostic delay, organ damage, utilities, costs); MEPS two-part model for the incremental annual cost of SLE | Evidence table, parameter file | Planned |
+| 2. Model structure | Decision tree for the triage pathway (panel vs. current pathway); Markov model for outcomes after early vs. late diagnosis | [Model structure doc](docs/02_model_structure.md) | ✅ Complete |
+| 3. Parameters & literature | Targeted literature review (pre-test probability, test accuracy, diagnostic delay, organ damage, utilities, costs); MEPS two-part model for the incremental annual cost of SLE | Evidence table, parameter file | Next |
 | 4. Analysis | Base-case cost per QALY; one-way (tornado) and probabilistic sensitivity analysis; headroom price; minimum sensitivity; 3-year budget impact | R scripts, results tables | Planned |
 | 5. Results | Case-study page with interactive price/accuracy calculator; 10-slide client readout | Figures, web page, slides | Planned |
 
@@ -50,6 +55,7 @@ For a US commercial health plan, what sensitivity, specificity, and price would 
 | Path | Contents |
 |---|---|
 | `docs/01_scope.md` | Scope: decision question, PICO, analysis settings |
+| `docs/02_model_structure.md` | Decision tree (both arms), end outcomes, Markov states |
 | `R/00_feasibility.R` | Checks the SLE sample size in MEPS Conditions files |
 | `output/` | Aggregate results only (no person-level data) |
 | `data/` | Raw and derived MEPS files (local only, not committed) |
