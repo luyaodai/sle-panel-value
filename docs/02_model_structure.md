@@ -17,7 +17,6 @@ Multiplexed autoantibodies panel
     	└─ symptoms resolved (1 - p_persist_noSLE) → not referred → referral saved      
 ```
 
-
 ### Comparator arm: current pathway
 ```
 Current pathway: everyone → full workup (anti-dsDNA, anti-Sm, ENA, C3/C4, CBC, UA, creatinine) → usual wait → clinician judgment
@@ -32,6 +31,7 @@ Current pathway: everyone → full workup (anti-dsDNA, anti-Sm, ENA, C3/C4, CBC,
       ├─ symptoms persist (p_persist_noSLE) → repeat workup → SLE ruled out later
       └─ symptoms resolve (1 − p_persist_noSLE) → no further care
 ```
+
 ### Assumption
 - The rheumatologist's diagnosis is correct (reference standard).
 - Both arms start from the same patients (same pre-test probability).
@@ -49,3 +49,20 @@ Current pathway: everyone → full workup (anti-dsDNA, anti-Sm, ENA, C3/C4, CBC,
 | No SLE, no further care    | Both    | no SLE, ruled out after repeat workup  | -                 |
 
 ## Markov health states
+
+
+```
+SLE, no major organ damage → Lupus nephritis → End-stage renal disease (ESRD)
+                │                          │             	   │
+                └────────────────────────Death─────────────────────┘
+
+```
+
+## How the tree links to the Markov model
+- Patients diagnosed with SLE (any timing) enter the Markov model in the state: SLE, no major organ damage
+  - Scenario: some very-delayed patients already have nephritis at diagnosis, so a share of them enters directly in Lupus nephritis.
+- Diagnostic delay changes: the yearly probability of moving from SLE, no major organ damage to Lupus nephritis
+  (longer delay → higher risk)
+- Patients without SLE: do not enter the Markov model; they only carry the
+  decision-tree costs. Their survival is the same in both arms, so it cancels out.
+- Cycle length: 1 year; horizon: lifetime; discount: 3%
