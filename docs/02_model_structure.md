@@ -6,13 +6,13 @@
 ```
 Multiplexed autoantibodies panel
 ├─ Has SLE (pre-test probability)
-│  ├─ Test + (sensitivity)      → referred now → early diagnosis
-│  └─ Test − (1 − sensitivity) 
+│  ├─ Test + (sens_panel)      → referred now → early diagnosis
+│  └─ Test − (1 − sens_panel) 
 │       ├─ symptoms persist (p_persist_SLE) → current pathway → delayed diagnosis
 │       └─ symptoms resolved (1 - p_persist_SLE) → undiagnosed for now → re-presents later → longer delay, higher risk of organ damage
 └─ No SLE (1 − pre-test probability)
-   ├─ Test + (1 − specificity)  → referred → unnecessary specialist visit
-   └─ Test − (specificity)    
+   ├─ Test + (1 − spec_panel)  → referred → unnecessary specialist visit
+   └─ Test − (spec_panel)    
         ├─ symptoms persist (p_persist_noSLE) → current pathway → SLE ruled out later
     	└─ symptoms resolved (1 - p_persist_noSLE) → not referred → referral saved      
 ```
@@ -50,10 +50,9 @@ Current pathway: everyone → full workup (anti-dsDNA, anti-Sm, ENA, C3/C4, CBC,
 
 ## Markov health states
 
-
 ```
 SLE, no major organ damage → Lupus nephritis → End-stage renal disease (ESRD)
-                │                          │             	   │
+                │                          │                 	   │
                 └─────────────────────── Death ────────────────────┘
 
 ```
