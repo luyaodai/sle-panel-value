@@ -1,6 +1,6 @@
 # SLE Multiplex Autoantibody Panel: Early Value Assessment
 
-**Status: Phases 1–2 complete (scope, model structure).** Model build in progress; see [Roadmap](#roadmap).
+**Status: Phases 1–2 complete; Phase 3 in progress (literature review done, evidence table underway).** See [Roadmap](#roadmap).
 
 Mock client question: a diagnostics company asks what accuracy and price its multiplex autoantibody panel for systemic lupus erythematosus (SLE) would need for US payers to see value. The panel is hypothetical. This project uses public data and published literature only.
 
@@ -47,7 +47,7 @@ For a US commercial health plan, what sensitivity, specificity, and price would 
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ---------- |
 | 1. Scope                   | Decision question, PICO, analysis settings                                                                                                                                     | This README                                       | ✅ Complete |
 | 2. Model structure         | Decision tree for the triage pathway (panel vs. current pathway); Markov model for outcomes after early vs. late diagnosis                                                     | [Model structure doc](docs/02_model_structure.md) | ✅ Complete |
-| 3. Parameters & literature | Targeted literature review (pre-test probability, test accuracy, diagnostic delay, organ damage, utilities, costs); MEPS two-part model for the incremental annual cost of SLE | Evidence table, parameter file                    | Next       |
+| 3. Parameters & literature | Targeted literature review (pre-test probability, test accuracy, diagnostic delay, organ damage, utilities, costs); MEPS two-part model for the incremental annual cost of SLE | [Evidence table](docs/03_evidence_table.md), [search log](docs/04_literature_search.md) | 🟡 In progress |
 | 4. Analysis                | Base-case cost per QALY; one-way (tornado) and probabilistic sensitivity analysis; headroom price; minimum sensitivity; 3-year budget impact                                   | R scripts, results tables                         | Planned    |
 | 5. Results                 | Case-study page with interactive price/accuracy calculator; 10-slide client readout                                                                                            | Figures, web page, slides                         | Planned    |
 
@@ -57,6 +57,8 @@ For a US commercial health plan, what sensitivity, specificity, and price would 
 | ---------------------------- | ------------------------------------------------------ |
 | `docs/01_scope.md`           | Scope: decision question, PICO, analysis settings      |
 | `docs/02_model_structure.md` | Decision tree (both arms), end outcomes, Markov states |
+| `docs/03_evidence_table.md` | Model inputs: meaning, source type, base value, range, source |
+| `docs/04_literature_search.md` | Literature search log: PubMed strings, hits, kept papers |
 | `R/00_feasibility.R`         | Checks the SLE sample size in MEPS Conditions files    |
 | `output/`                    | Aggregate results only (no person-level data)          |
 | `data/`                      | Raw and derived MEPS files (local only, not committed) |

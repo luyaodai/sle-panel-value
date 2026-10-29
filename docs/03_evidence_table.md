@@ -2,24 +2,24 @@
 
 ## 1. Probabilities
 
-| Parameter            | Meaning                                                                                            | Source type                       | Where                                  |
-| -------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------- | -------------------------------------- |
-| pre_test_probability | Share of ANA+ primary care patients with SLE symptoms who actually have SLE                        | Literature                        | Search                                 |
-| sens_panel           | Panel: share of patients with SLE who test positive (solved for; base case from an analog test)    | Solved for (base case: benchmark) | AVISE CTD published validation studies |
-| spec_panel           | Panel: share of patients without SLE who test negative (solved for; base case from an analog test) | Solved for (base case: benchmark) | AVISE CTD published validation studies |
-| sens_current         | Current pathway: share of patients with SLE who are referred after the full workup                 | Literature                        | Search                                 |
-| spec_current         | Current pathway: share of patients without SLE who are not referred                                | Literature                        | Search                                 |
-| p_persist_SLE        | Share of not-referred SLE patients whose symptoms persist                                          | Literature                        | Search; if not found → Assumption      |
-| p_persist_noSLE      | Share of not-referred non-SLE patients whose symptoms persist                                      | Literature                        | Search; if not found → Assumption      |
+| Parameter            | Meaning                                                                                            | Source type                       | Base | Low   | High | Source                   | Notes                                                      |
+| -------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------- | ---- | ----- | ---- | ------------------------ | ---------------------------------------------------------- |
+| pre_test_probability | Share of ANA+ primary care patients with SLE symptoms who actually have SLE                        | Literature                        | 0.05 | 0.024 | 0.08 | Kang 2022; O'Malley 2022 | Low = SLE among all ANA+ (derived); high = US rheumatology |
+| sens_panel           | Panel: share of patients with SLE who test positive (solved for; base case from an analog test)    | Solved for (base case: benchmark) |      |       |      |                          |                                                            |
+| spec_panel           | Panel: share of patients without SLE who test negative (solved for; base case from an analog test) | Solved for (base case: benchmark) |      |       |      |                          |                                                            |
+| sens_current         | Current pathway: share of patients with SLE who are referred after the full workup                 | Literature                        |      |       |      |                          |                                                            |
+| spec_current         | Current pathway: share of patients without SLE who are not referred                                | Literature                        |      |       |      |                          |                                                            |
+| p_persist_SLE        | Share of not-referred SLE patients whose symptoms persist                                          | Literature                        |      |       |      |                          |                                                            |
+| p_persist_noSLE      | Share of not-referred non-SLE patients whose symptoms persist                                      | Literature                        |      |       |      |                          |                                                            |
 
 ## 2. Times
 
-| Parameter  | Meaning                                                                  | Source type | Where                             |
-| ---------- | ------------------------------------------------------------------------ | ----------- | --------------------------------- |
-| t_standard | Months from ANA+ result to diagnosis on the current pathway              | Literature  | Search                            |
-| t_delay    | Extra months when symptoms persist and the patient is referred later     | Literature  | Search; if not found → Assumption |
-| t_long     | Extra months when symptoms resolved and the patient is re-presents later | Literature  | Search; if not found → Assumption |
-| t_panel    | Months from ANA+ result to diagnosis with the panel test                 | Assumption  | method TBD                        |
+| Parameter  | Meaning                                                                  | Source type | Where                                                                                                                        |
+| ---------- | ------------------------------------------------------------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| t_standard | Months from ANA+ result to diagnosis on the current pathway              | Literature  | Rees 2016 (UK primary care, first recorded visit → dx): base 19 mo; range 6 (Oglesby early cut-off) – 47 (Kernder 2021 mean) |
+| t_delay    | Extra months when symptoms persist and the patient is referred later     | Literature  | Search; if not found → Assumption                                                                                            |
+| t_long     | Extra months when symptoms resolved and the patient is re-presents later | Literature  | Search; if not found → Assumption                                                                                            |
+| t_panel    | Months from ANA+ result to diagnosis with the panel test                 | Assumption  | method TBD                                                                                                                   |
 
 ## 3. Markov transitions
 
